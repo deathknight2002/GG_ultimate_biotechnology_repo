@@ -1,0 +1,113 @@
+{
+  "pluginSystem": {
+    "version": "1.0",
+    "description": "SeleniumVBA .NET Plugin System for Biotechnology",
+    "author": "SeleniumVBA Team",
+    "lastUpdated": "2025-01-01"
+  },
+  "plugins": [
+    {
+      "id": "biotech.dna.sequencing",
+      "name": "DNA Sequencing Analyzer",
+      "version": "1.0.0",
+      "category": "Biotech",
+      "description": "Analyzes DNA sequencing data, identifies patterns, and generates quality reports",
+      "assemblyFile": "Biotech/DNASequencingPlugin.dll",
+      "mainClass": "SeleniumVBA.Plugins.Biotech.DNASequencingPlugin",
+      "dependencies": [],
+      "capabilities": {
+        "supportedFormats": ["FASTA", "FASTQ", "BAM", "VCF"],
+        "analysisTypes": ["QualityControl", "VariantCalling", "Alignment"],
+        "maxSequenceLength": 10000000
+      },
+      "configuration": {
+        "defaultQualityThreshold": 30,
+        "enableCaching": true
+      }
+    },
+    {
+      "id": "biotech.protein.analysis",
+      "name": "Protein Structure Analyzer",
+      "version": "1.0.0",
+      "category": "Biotech",
+      "description": "Analyzes protein sequences, predicts structure, and identifies functional domains",
+      "assemblyFile": "Biotech/ProteinAnalysisPlugin.dll",
+      "mainClass": "SeleniumVBA.Plugins.Biotech.ProteinAnalysisPlugin",
+      "dependencies": [],
+      "capabilities": {
+        "supportedFormats": ["FASTA", "PDB", "SWISS-PROT"],
+        "analysisTypes": ["StructurePrediction", "DomainIdentification", "PropertyCalculation"],
+        "maxProteinLength": 5000
+      },
+      "configuration": {
+        "predictSecondaryStructure": true,
+        "calculateProperties": true
+      }
+    },
+    {
+      "id": "ui.theme.glass-oled",
+      "name": "Glass OLED Theme",
+      "version": "1.0.0",
+      "category": "UI",
+      "description": "Modern glass morphism theme with OLED-optimized colors for biotech applications",
+      "assemblyFile": "UI/GlassOLEDThemePlugin.dll",
+      "mainClass": "SeleniumVBA.Plugins.UI.GlassOLEDThemePlugin",
+      "dependencies": [],
+      "capabilities": {
+        "themes": ["glass-biotech", "oled-dark", "oled-light"],
+        "components": ["card", "button", "table", "metric", "dashboard"],
+        "responsive": true
+      },
+      "resources": {
+        "stylesheets": ["UI/styles/glass-oled-biotech.css"],
+        "templates": ["UI/templates/dashboard.html"],
+        "scripts": ["UI/scripts/dashboard.js"]
+      }
+    },
+    {
+      "id": "example.starter",
+      "name": "Starter Plugin Template",
+      "version": "1.0.0",
+      "category": "Examples",
+      "description": "A template plugin showing basic functionality for developers",
+      "assemblyFile": "Examples/StarterPlugin.dll",
+      "mainClass": "SeleniumVBA.Plugins.Examples.StarterPlugin",
+      "dependencies": [],
+      "capabilities": {
+        "supportedOperations": ["HelloWorld", "ProcessData", "GenerateOutput"]
+      },
+      "documentation": "See Examples/README.md for usage instructions"
+    }
+  ],
+  "categories": {
+    "Biotech": {
+      "description": "Biotechnology-specific analysis and processing plugins",
+      "icon": "🧬"
+    },
+    "UI": {
+      "description": "User interface themes and components",
+      "icon": "🎨"
+    },
+    "Analysis": {
+      "description": "Data analysis and statistical plugins",
+      "icon": "📊"
+    },
+    "Visualization": {
+      "description": "Data visualization and charting plugins",
+      "icon": "📈"
+    },
+    "Export": {
+      "description": "Data export and report generation plugins",
+      "icon": "📄"
+    },
+    "Examples": {
+      "description": "Example and template plugins for developers",
+      "icon": "📚"
+    }
+  },
+  "systemRequirements": {
+    "dotNetFramework": "4.7.2",
+    "minimumRAM": "4GB",
+    "operatingSystem": "Windows 10+"
+  }
+}

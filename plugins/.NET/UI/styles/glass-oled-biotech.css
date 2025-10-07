@@ -1,0 +1,317 @@
+/* ========================================================================
+   SeleniumVBA Biotech - Glass/OLED Dynamic Style
+   Modern, reflective glass morphism design with OLED-optimized colors
+   ======================================================================== */
+
+:root {
+    /* Glass morphism colors */
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.18);
+    --glass-shadow: rgba(0, 0, 0, 0.3);
+    
+    /* OLED optimized colors - pure blacks and vibrant accents */
+    --oled-black: #000000;
+    --oled-dark: #0a0a0a;
+    --oled-accent: #00ff88;
+    --oled-accent-secondary: #00d4ff;
+    --oled-warning: #ff6b35;
+    --oled-error: #ff0055;
+    
+    /* Biotech theme colors */
+    --biotech-primary: #00ff88;
+    --biotech-secondary: #00d4ff;
+    --biotech-tertiary: #a855f7;
+    --biotech-dna: #4ade80;
+    --biotech-protein: #facc15;
+    --biotech-cell: #06b6d4;
+    
+    /* Typography */
+    --font-primary: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --font-mono: 'Consolas', 'Monaco', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--oled-black);
+    color: var(--oled-accent);
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Glass Morphism Container */
+.glass-container {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 8px 32px var(--glass-shadow);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 48px var(--glass-shadow);
+}
+
+/* OLED Card Components */
+.oled-card {
+    background: linear-gradient(135deg, var(--oled-dark) 0%, rgba(0, 255, 136, 0.05) 100%);
+    border: 1px solid rgba(0, 255, 136, 0.2);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 16px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.oled-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.1), transparent);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Biotech Dashboard Grid */
+.biotech-dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Data Visualization Panels */
+.viz-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 20px;
+    min-height: 400px;
+}
+
+.viz-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(0, 255, 136, 0.2);
+}
+
+.viz-panel-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--biotech-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Interactive Buttons */
+.btn-glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    color: var(--oled-accent);
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-glass:hover {
+    background: rgba(0, 255, 136, 0.1);
+    border-color: var(--oled-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 255, 136, 0.3);
+}
+
+.btn-glass:active {
+    transform: translateY(0);
+}
+
+/* Data Tables */
+.data-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 20px 0;
+}
+
+.data-table thead {
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, rgba(0, 212, 255, 0.1) 100%);
+}
+
+.data-table th {
+    padding: 16px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--biotech-primary);
+    border-bottom: 2px solid var(--oled-accent);
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 1px;
+}
+
+.data-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.8);
+    font-family: var(--font-mono);
+}
+
+.data-table tbody tr {
+    transition: all 0.2s ease;
+}
+
+.data-table tbody tr:hover {
+    background: rgba(0, 255, 136, 0.05);
+}
+
+/* Status Indicators */
+.status-indicator {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 8px;
+    animation: pulse 2s infinite;
+}
+
+.status-active { background: var(--biotech-primary); }
+.status-warning { background: var(--oled-warning); }
+.status-error { background: var(--oled-error); }
+.status-processing { background: var(--biotech-secondary); }
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Progress Bars */
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--biotech-primary), var(--biotech-secondary));
+    border-radius: 4px;
+    transition: width 0.3s ease;
+    position: relative;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: progress-shimmer 1.5s infinite;
+}
+
+@keyframes progress-shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Metric Cards */
+.metric-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+}
+
+.metric-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--biotech-primary);
+    font-family: var(--font-mono);
+}
+
+.metric-label {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 8px;
+}
+
+/* DNA Helix Animation */
+.dna-helix {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.dna-strand {
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--biotech-dna), var(--biotech-secondary));
+    animation: rotate-strand 4s linear infinite;
+}
+
+@keyframes rotate-strand {
+    0% { transform: translateX(0) rotate(0deg); }
+    100% { transform: translateX(100px) rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .biotech-dashboard {
+        grid-template-columns: 1fr;
+    }
+    
+    .glass-container {
+        padding: 16px;
+    }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--oled-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--glass-border);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--oled-accent);
+}

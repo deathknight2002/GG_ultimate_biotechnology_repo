@@ -4,16 +4,39 @@ A comprehensive Selenium wrapper for browser automation developed for MS Office 
 
 ## Features
 
+### Browser Automation
 - Edge, Chrome, and Firefox browser automation support
 - MS Excel Add-in, MS Access DB, and [twinBASIC](https://twinbasic.com/preview.html) ActiveX DLL solutions available
 - A superset of Selenium's [W3C WebDriver](https://w3c.github.io/webdriver/) commands - [over 400 public methods and properties](https://github.com/GCuser99/SeleniumVBA/wiki/Object-Model-Overview)
 - Support for HTML DOM, Action Chains, SendKeys, Shadow Roots, Cookies, ExecuteScript, and Capabilities
-- ExecuteCDP method exposing [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/) - a low-level interface for browser interaction.
+- ExecuteCDP method exposing [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/) - a low-level interface for browser interaction
 - Automated Browser/WebDriver version alignment - works out-of-the-box with no manual downloads necessary!
+
+### 🧬 Biotechnology Plugin System (NEW)
+- **Extensible .NET Plugin Architecture** - Create custom plugins using C#
+- **DNA Sequencing Analysis** - Quality control, GC content, motif finding
+- **Protein Analysis** - Structure prediction, molecular weight, domain identification
+- **Data Processing Pipeline** - Batch process biological data from Excel/VBA
+- **Plug-and-Play Integration** - Simply drop DLL files into plugin directory
+
+### 🎨 Modern UI Framework (NEW)
+- **Glass OLED Theme** - Glass morphism with OLED-optimized pure blacks
+- **Biotech Color Scheme** - Neon green (#00ff88) and cyan accents
+- **Interactive Dashboard** - Real-time metrics and data visualization
+- **Responsive Components** - Pre-built cards, tables, buttons, and charts
+- **Dynamic Animations** - Shimmer effects, smooth transitions, status indicators
+
+### Resources
 - Help documentation is available in the [SeleniumVBA Wiki](https://github.com/GCuser99/SeleniumVBA/wiki)
+- Plugin documentation in [plugins/.NET/README.md](plugins/.NET/README.md)
+- Quick start guide in [plugins/.NET/QUICKSTART.md](plugins/.NET/QUICKSTART.md)
 
 **What's New?**
 
+- 🧬 **NEW: Biotechnology .NET Plugin System** - Extensible plugin architecture with biotech-specific modules for DNA sequencing, protein analysis, and data visualization
+- 🎨 **NEW: Glass OLED UI Theme** - Modern glass morphism design with OLED-optimized colors and dynamic biotech styling
+- 🔌 **NEW: Plug-and-Play Architecture** - Easy integration of custom .NET plugins with VBA through COM interop
+- 📊 **NEW: Interactive Dashboard** - Real-time biotech data visualization with responsive HTML/CSS/JS components
 - Improved performance/reliability by executing expensive/complex code using in-browser JavaScript
 - NavigateToString allowing direct navigation to HTML strings to help facilitate testing and issue debugging
 - Featured on [Sancarn](https://github.com/sancarn)'s curated [Awesome VBA list](https://github.com/sancarn/awesome-vba?tab=readme-ov-file#web-tools) [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
@@ -103,6 +126,98 @@ Sub doActionChain()
     driver.Shutdown
 End Sub
 ```
+
+## Biotech Plugin Example (NEW)
+```vba
+Sub doBiotechAnalysis()
+    ' Import PluginHelper.bas module first
+    
+    ' Analyze DNA sequence
+    Dim result As Object
+    Set result = AnalyzeDNA("ATCGATCGATCGATCG")
+    
+    ' Display results
+    Debug.Print "Sequence Length: " & result("Length")
+    Debug.Print "GC Content: " & result("GCContent")
+    Debug.Print "Complexity Score: " & result("ComplexityScore")
+    
+    ' Launch interactive dashboard
+    LaunchBiotechDashboard
+End Sub
+```
+
+## Glass OLED Dashboard Example (NEW)
+```vba
+Sub LaunchDashboard()
+    Dim driver As New WebDriver
+    driver.StartChrome
+    driver.OpenBrowser
+    
+    ' Navigate to the Glass OLED biotech dashboard
+    Dim dashboardPath As String
+    dashboardPath = "file:///" & Replace(ThisWorkbook.Path, "\", "/") & _
+                    "/plugins/.NET/UI/templates/dashboard.html"
+    driver.NavigateTo dashboardPath
+    
+    ' Dashboard features:
+    ' - Real-time metrics with animated counters
+    ' - Glass morphism effects with backdrop blur
+    ' - OLED-optimized pure black background
+    ' - Interactive data tables and charts
+    ' - Biotech-themed color scheme (neon green/cyan)
+    
+    driver.Wait 5000
+End Sub
+```
+
+## Plugin System Setup
+
+### Quick Start
+
+1. **View the Dashboard**: Open `plugins/.NET/UI/templates/dashboard.html` in your browser
+2. **Import VBA Helper**: Add `plugins/.NET/VBA/PluginHelper.bas` to your VBA project
+3. **Use Plugins**: Call biotech functions directly from VBA
+
+```vba
+' Initialize plugin system
+InitializePlugins
+
+' Analyze DNA from Excel
+Dim sequence As String
+sequence = Range("A2").Value
+Dim result As Object
+Set result = AnalyzeDNA(sequence)
+
+' Write results back to Excel
+Range("B2").Value = result("Length")
+Range("C2").Value = result("GCContent")
+```
+
+### Available Plugins
+
+- **DNA Sequencing** (`biotech.dna.sequencing`) - Sequence analysis and quality control
+- **Protein Analysis** (`biotech.protein.analysis`) - Structure and property prediction
+- **Glass OLED Theme** (`ui.theme.glass-oled`) - Modern UI components and styling
+
+For full documentation, see [plugins/.NET/README.md](plugins/.NET/README.md)
+
+## Creating Custom Plugins
+
+Extend the system with your own .NET plugins:
+
+```csharp
+using SeleniumVBA.Plugins.Core;
+
+public class MyPlugin : PluginBase, IBiotechPlugin
+{
+    public override string Id => "mycompany.customplugin";
+    public override string Name => "My Custom Plugin";
+    // Implement plugin logic...
+}
+```
+
+See [plugins/.NET/Examples/StarterPlugin.cs](plugins/.NET/Examples/StarterPlugin.cs) for a complete template.
+
 ## Collaborators
 
 [@6DiegoDiego9](https://github.com/6DiegoDiego9) and [@GCUser99](https://github.com/GCUser99)

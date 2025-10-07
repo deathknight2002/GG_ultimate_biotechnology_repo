@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biotech Dashboard - SeleniumVBA</title>
+    <link rel="stylesheet" href="../styles/glass-oled-biotech.css">
+</head>
+<body>
+    <div class="biotech-dashboard">
+        <!-- Header Section -->
+        <div class="glass-container" style="grid-column: 1 / -1;">
+            <h1 style="color: var(--biotech-primary); font-size: 2rem; margin-bottom: 8px;">
+                🧬 Biotech Analysis Dashboard
+            </h1>
+            <p style="color: rgba(255, 255, 255, 0.6);">
+                Real-time biotechnology data processing and visualization
+            </p>
+        </div>
+
+        <!-- Metrics Section -->
+        <div class="metric-card">
+            <div class="status-indicator status-active"></div>
+            <div class="metric-value" id="sampleCount">0</div>
+            <div class="metric-label">Active Samples</div>
+        </div>
+
+        <div class="metric-card">
+            <div class="status-indicator status-processing"></div>
+            <div class="metric-value" id="analysisCount">0</div>
+            <div class="metric-label">Analyses Running</div>
+        </div>
+
+        <div class="metric-card">
+            <div class="status-indicator status-active"></div>
+            <div class="metric-value" id="completionRate">0%</div>
+            <div class="metric-label">Completion Rate</div>
+        </div>
+
+        <!-- Data Visualization Panel -->
+        <div class="viz-panel" style="grid-column: 1 / -1;">
+            <div class="viz-panel-header">
+                <h2 class="viz-panel-title">Data Analysis</h2>
+                <button class="btn-glass" onclick="refreshData()">Refresh</button>
+            </div>
+            <div id="visualization-content">
+                <canvas id="dataChart" width="100%" height="300"></canvas>
+            </div>
+        </div>
+
+        <!-- Sample Data Table -->
+        <div class="oled-card" style="grid-column: 1 / -1;">
+            <h3 style="color: var(--biotech-secondary); margin-bottom: 16px;">Sample Data</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Sample ID</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                        <th>Progress</th>
+                        <th>Results</th>
+                    </tr>
+                </thead>
+                <tbody id="sampleTableBody">
+                    <!-- Dynamic content loaded via JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Action Panel -->
+        <div class="glass-container" style="grid-column: 1 / -1;">
+            <h3 style="color: var(--biotech-primary); margin-bottom: 16px;">Quick Actions</h3>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <button class="btn-glass" onclick="startAnalysis()">Start Analysis</button>
+                <button class="btn-glass" onclick="exportData()">Export Data</button>
+                <button class="btn-glass" onclick="generateReport()">Generate Report</button>
+                <button class="btn-glass" onclick="viewProtocols()">View Protocols</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../scripts/dashboard.js"></script>
+</body>
+</html>
